@@ -1,0 +1,9 @@
+<!-- flight-list.component.html -->
+
+<div class="flight-list-container">
+  <h2>Flight List</h2>
+  <div *ngFor="let flight of flights" class="flight-card">
+    <h3>{{ flight.name }}</h3>
+    <p>Capacity: {{ flight.capacity }}</p>
+  </div>
+</div>

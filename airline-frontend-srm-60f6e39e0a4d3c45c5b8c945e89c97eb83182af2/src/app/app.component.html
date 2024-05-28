@@ -1,0 +1,58 @@
+<!-- app.component.html -->
+
+<div class="app-container">
+  <div class="header">
+    <h1 class="gradient-heading">Airline Reservation System</h1>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <h2 class="gradient-heading">Flight List</h2>
+      <div class="flight-list">
+        <div *ngFor="let flight of flights" class="flight-card">
+          <h3>{{ flight.name }}</h3>
+          <p>Capacity: {{ flight.capacity }}</p>
+          <p>From: {{ flight.from }}</p>
+          <p>Destination: {{ flight.destination }}</p>
+          <p>Comfort: {{ flight.comfort }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="gradient-heading">Book a Flight</h2>
+      <div class="book-flight">
+        <div *ngFor="let flight of flights" class="flight-card">
+          <h3>{{ flight.name }}</h3>
+          <p>Capacity: {{ flight.capacity }}</p>
+          <button (click)="bookFlight(flight.name)">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Page -->
+    <div class="section" *ngIf="bookingFlight">
+      <h2>Booking Page</h2>
+      <div class="booking-form">
+        <h3>Booking Details</h3>
+        <form (submit)="submitBooking()">
+          <label for="name">Name:</label>
+          <input type="text" id="name" [formControl]="userName" required />
+
+          <label for="age">Age:</label>
+          <input type="text" id="age" [formControl]="userAge" required />
+
+          <!-- Add more fields for date and time -->
+
+          <button type="submit">Submit Booking</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="successMessage" class="overlay">
+  <div class="popup">
+    <p>{{ successMessage }}</p>
+    <button (click)="closePopup()">Close</button>
+  </div>
+</div>

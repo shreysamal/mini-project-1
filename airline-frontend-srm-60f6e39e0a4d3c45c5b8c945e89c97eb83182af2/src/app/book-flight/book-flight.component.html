@@ -1,0 +1,10 @@
+<!-- book-flight.component.html -->
+
+<div class="book-flight-container">
+  <h2>Book a Flight</h2>
+  <div *ngFor="let flight of flights" class="flight-card">
+    <h3>{{ flight.name }}</h3>
+    <p>Capacity: {{ flight.capacity }}</p>
+    <button (click)="bookFlight(flight.id)">Book Now</button>
+  </div>
+</div>
